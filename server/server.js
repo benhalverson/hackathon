@@ -6,26 +6,10 @@ var bodyParser = require("body-parser");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.use(function (req, res, next) {
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://benhalverson.me');
-
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Pass to next layer of middleware
-    next();
-});
-
 app.use(express.static(__dirname + '/public'));
 
 var mongoose = require("mongoose");
-mongoose.connect('mongodb://admintest:password123@kahana.mongohq.com:10008/app28010960');
+mongoose.connect("mongodb://localhost/hackathon");
 
 // creating a model for mongodb
 var Order = mongoose.model('Product', {
@@ -81,5 +65,5 @@ app.post("/add", function (req, res) {
 
 
 
-app.listen(process.env.PORT);
-//app.listen(4000);
+//app.listen(process.env.PORT);
+app.listen(4000);

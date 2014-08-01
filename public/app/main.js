@@ -2,8 +2,8 @@ var orderManagement = angular.module("orderManagement", []);
 
 orderManagement.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-//    var url = "http://localhost:4000";
-    var url = "http://admintest:password123@kahana.mongohq.com:10008/app28010960";
+    var url = "http://localhost:4000";
+    //var url = "http://admintest:password123@kahana.mongohq.com:10008/app28010960";
 
     app.saveOrder = function (newOrder) {
         //create a new order object
