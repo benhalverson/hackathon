@@ -2,7 +2,7 @@ var orderManagement = angular.module("orderManagement", ["ui.bootstrap"]);
 
 orderManagement.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-    var url = "mongodb://admintest:password123@kahana.mongohq.com";
+    var url = "//admintest:password123@kahana.mongohq.com";
 
 
     app.saveOrder = function (newOrder) {
