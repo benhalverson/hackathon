@@ -9,7 +9,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/orders");
+//mongoose.connect("mongodb://localhost/orders");
+mongoose.connect("mongodb://admintest:password123@kahana.mongohq.com:10008/app28010960");
+
 
 // creating a model for mongodb
 var Order = mongoose.model('Product', {
