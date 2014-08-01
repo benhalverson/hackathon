@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 var mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost/hackathon');
+mongoose.connect('mongodb://admintest:password123@kahana.mongohq.com:10008/app28010960');
 
 // creating a model for mongodb
 var Order = mongoose.model('Product', {
