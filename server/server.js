@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/hackathon");
+mongoose.connect("mongodb://localhost/orders");
 
 // creating a model for mongodb
 var Order = mongoose.model('Product', {
@@ -19,9 +19,8 @@ var Order = mongoose.model('Product', {
     qty: Number
 });
 
-//saving data to mongo
 
-
+//query the database
 app.get("/", function(req, res){
     Order.find(function(err, order) {
         console.log("order from server " + order);
@@ -65,5 +64,4 @@ app.post("/add", function (req, res) {
 
 
 
-//app.listen(process.env.PORT);
 app.listen(4000);
