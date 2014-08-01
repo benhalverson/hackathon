@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 var mongoose = require("mongoose");
-mongoose.connect('mongodb://admintest:password123@kahana.mongohq.com:10008/app28010960');
+mongoose.connect('mongodb://admintest:password123>@proximus.modulusmongo.net:27017/izywy6pY');
 
 // creating a model for mongodb
 var Order = mongoose.model('Product', {
@@ -64,5 +64,5 @@ app.post("/add", function (req, res) {
 
 
 
-
-app.listen(4000);
+app.listen(process.env.PORT);
+//app.listen(4000);

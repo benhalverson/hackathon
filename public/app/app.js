@@ -2,7 +2,8 @@ var orderManagement = angular.module("orderManagement", []);
 
 orderManagement.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-    var url = "http://localhost:4000";
+//    var url = "http://localhost:4000";
+    var url = "mongodb://admintest:password123>@proximus.modulusmongo.net:27017/izywy6pY";
 
     app.saveOrder = function (newOrder) {
         //create a new order object

@@ -2,6 +2,7 @@
     "name": "orderManagement",
     "version": "0.0.1",
     "private": true,
+    "main": "server/server.js",
     "dependencies": {
         "express": "4.7.2",
         "cors": "2.4.1",
