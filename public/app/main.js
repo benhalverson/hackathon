@@ -2,7 +2,7 @@ var orderManagement = angular.module("orderManagement", ["ui.bootstrap"]);
 
 orderManagement.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-    var url = "http://ds053419.mongolab.com:53419/heroku_app28010960";
+    var url = "//ds053419.mongolab.com:53419/heroku_app28010960";
 
 
     app.saveOrder = function (newOrder) {

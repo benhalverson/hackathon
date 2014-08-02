@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'hackathon.pro/temp');
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -76,7 +76,7 @@ app.get("/", function(req, res){
     Order.find(function(err, order) {
         console.log("order from server " + order);
         res.send(order);
-    })
+    });
 
 
 //posting to mongo database
@@ -113,7 +113,7 @@ app.post("/add", function (req, res) {
     })
 });
 });
-var port = Number(process.env.PORT || 6666);
+var port = Number(process.env.PORT || 3000);
 app.listen(port, function() {
     console.log("Listening on " + port);
 });

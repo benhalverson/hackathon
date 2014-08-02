@@ -7,6 +7,7 @@
         "express": "4.7.2",
         "cors": "2.4.1",
         "mongoose": "3.8.14",
+        "mongodb-uri": "latest",
         "body-parser": "1.5.2"
     }
 }
