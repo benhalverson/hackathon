@@ -9,6 +9,7 @@
     <orderEntry type="library" name="express-validator-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="angular-ui-bootstrap-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="mongoYoutube node_modules" level="project" />
   </component>
 </module>
 

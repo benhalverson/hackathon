@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
 var mongoose = require("mongoose");
 //mongoose.connect("mongodb://localhost/orders");
-mongoose.connect("mongodb://admintest:password123@kahana.mongohq.com:10008/app28010960");
+mongoose.connect("mongodb://admin:admin123@ds053419.mongolab.com:53419/heroku_app28010960");
 
 
 // creating a model for mongodb
