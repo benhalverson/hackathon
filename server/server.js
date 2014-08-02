@@ -8,6 +8,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
+//function handleCors(req, res, callback) {
+//
+//    res.setHeader('Access-Control-Allow-Origin', '*');
+//    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
+//    res.setHeader('Access-Control-Allow-Headers', 'Authorization');
+//
+//    // CORS OPTIONS request, simply return 200
+//    if (req.method == 'OPTIONS') {
+//        res.statusCode = 200;
+//        res.end();
+//        callback.onOptions();
+//        return;
+//    }
+//
+//    callback.onContinue();
+
+
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'hackathon.pro');
@@ -22,10 +39,28 @@ app.use(function (req, res, next) {
     next();
 });
 
-var mongoose = require("mongoose");
-//mongoose.connect("mongodb://localhost/orders");
-mongoose.connect("mongodb://admin:admin123@ds053419.mongolab.com:53419/heroku_app28010960");
 
+////mongoose.connect("mongodb://localhost/orders");
+
+
+var mongoose = require("mongoose");
+var uriUtil = require("mongodb-uri");
+// mongodb options
+var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+    replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
+
+
+var mongodbUri = "mongodb://admin:admin123@ds053419.mongolab.com:53419/heroku_app28010960";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+mongoose.connect(mongooseUri, options);
+var conn = mongoose.connection;
+
+conn.on("error", console.error.bind(console, "connection error:"));
+conn.once("open", function() {
+    console.log("connected to the server!")
+
+});
 
 // creating a model for mongodb
 var Order = mongoose.model('Product', {
@@ -42,7 +77,7 @@ app.get("/", function(req, res){
         console.log("order from server " + order);
         res.send(order);
     })
-})
+
 
 //posting to mongo database
 app.post("/add", function (req, res) {
@@ -77,11 +112,10 @@ app.post("/add", function (req, res) {
         res.send();
     })
 });
-
-
-var port = Number(process.env.PORT || 5000);
+});
+var port = Number(process.env.PORT || 6666);
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
 
-//app.listen($PORT);
+//app.listen(4000);
