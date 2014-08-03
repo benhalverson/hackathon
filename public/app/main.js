@@ -1,8 +1,8 @@
-var orderManagement = angular.module("orderManagement", ["ui.bootstrap"]);
+var orderManagement = angular.module("orderManagement", []);
 
 orderManagement.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-    var url = "//ds053419.mongolab.com:53419/heroku_app28010960";
+    var url = "http://shrouded-stream-1514.herokuapp.com";
 
 
     app.saveOrder = function (newOrder) {
@@ -16,7 +16,14 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
 
         console.log("order : " + JSON.stringify(newOrder));
 
-
+        //TODO: reset fields after adding something to the database
+        //code doesn't work right
+//        var newOrder = {
+//            "name": $scope.name = "",
+//            "description": $scope.description = "",
+//            "price": $scope.price = 0,
+//            "qty": $scope.qty = 0
+//        };
         $http.post(url + "/add", {name:newOrder}).success(function () {
             loadOrder();
         })
