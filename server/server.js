@@ -7,24 +7,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
-
-//function handleCors(req, res, callback) {
-//
-//    res.setHeader('Access-Control-Allow-Origin', '*');
-//    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE,OPTIONS');
-//    res.setHeader('Access-Control-Allow-Headers', 'Authorization');
-//
-//    // CORS OPTIONS request, simply return 200
-//    if (req.method == 'OPTIONS') {
-//        res.statusCode = 200;
-//        res.end();
-//        callback.onOptions();
-//        return;
-//    }
-//
-//    callback.onContinue();
-
-
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -39,9 +21,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-////mongoose.connect("mongodb://localhost/orders");
-
+//another way of connecting to mongo database
+//mongoose.connect("mongodb://localhost/:dbname");
 
 var mongoose = require("mongoose");
 var uriUtil = require("mongodb-uri");
@@ -49,7 +30,8 @@ var uriUtil = require("mongodb-uri");
 var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
     replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
 
-
+//localhost code
+//var mongodbUri = "mongodb://localhost:27017";
 var mongodbUri = "mongodb://admin:admin123@ds053419.mongolab.com:53419/heroku_app28010960";
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
@@ -70,14 +52,12 @@ var Order = mongoose.model('Product', {
     qty: Number
 });
 
-
 //query the database
 app.get("/", function(req, res){
     Order.find(function(err, order) {
         console.log("order from server " + order);
         res.send(order);
     });
-
 
 //posting to mongo database
 app.post("/add", function (req, res) {
@@ -101,9 +81,7 @@ app.post("/add", function (req, res) {
             console.log("Saved");
         }
     });
-
-
-    var order = Order(
+     var order = Order(
         {name: name,
             description: description,
             price: price,
@@ -117,5 +95,3 @@ var port = Number(process.env.PORT || 3000);
 app.listen(port, function() {
     console.log("Listening on " + port);
 });
-
-//app.listen(4000);

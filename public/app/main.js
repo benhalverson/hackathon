@@ -2,7 +2,7 @@ var orderManagement = angular.module("orderManagement", []);
 
 orderManagement.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-    //var url = "localhost:20017"; // for testing on local machine
+    //var url = "localhost:27017"; // for testing on local machine
 
     // url is where you host your server code
     var url = "http://shrouded-stream-1514.herokuapp.com";
