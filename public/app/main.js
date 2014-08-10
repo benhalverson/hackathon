@@ -18,7 +18,14 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
             "state": $scope.state,
             "zipcode": $scope.zipcode,
             "logoURL": $scope.logoURL,
-            "website": $scope.website};
+            "website": $scope.website,
+            "date": $scope.date,
+            "type": $scope.type,
+            "api": $scope.api,
+            "prize": $scope.prize,
+            "price": $scope.price,
+            "duration": $scope.duration
+        };
         console.log($scope.name);
 
         console.log("order : " + JSON.stringify(newOrder));

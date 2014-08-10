@@ -10,8 +10,8 @@
 <body ng-app="orderManagement">
 <div ng-controller="AppCtrl as app">
 
-    <input type="text" ng-model="name" placeholder="Product Name"/>
-    <input type="text" ng-model="description" placeholder="Product Description"/>
+    <input type="text" ng-model="name" placeholder="Name"/>
+    <input type="text" ng-model="description" placeholder="Description"/>
     <input type="text" ng-model="address" placeholder="address"/>
     <input type="text" ng-model="city" placeholder="city"/>
     <input type="text" ng-model="state" placeholder="state"/>
@@ -21,7 +21,7 @@
     <button class="btn btn-primary"ng-click="app.saveOrder()">Save</button>
     <table class="table table-striped">
         <thead>
-        <th>Product</th>
+        <th>Hackathon Name</th>
         <th>Description</th>
         <th>Address</th>
         <th>City</th>
@@ -38,8 +38,8 @@
          <td>{{ord.city}}</td>
          <td>{{ord.state}}</td>
          <td>{{ord.zipcode}}</td>
-         <td>{{ord.logoURL}}</td>
-         <td>{{ord.website}}</td>
+         <td><img src="{{ord.logoURL}}" /></td>
+         <td><a href="{{ord.website}}">{{ord.website}}</a></td>
         </tr>
         </tbody>
     </table>

@@ -53,7 +53,13 @@ var Order = mongoose.model('hackathon', {
     state: String,
     zipcode: String,
     logoURL: String,
-    website: String
+    website: String,
+    date: String,
+    type: String,
+    api: Number,
+    prize: Number,
+    price: Number,
+    duration: String
 });
 
 //query the database
@@ -73,6 +79,13 @@ app.post("/add", function (req, res) {
     var zipcode = req.body.zipcode;
     var logoURL = req.body.logoURL;
     var website = req.body.website;
+    var date = req.body.date;
+    var type = req.body.type;
+    var api = req.body.api;
+    var prize = req.body.prize;
+    var price = req.body.price;
+    var duration = req.body.duration;
+
     //console.log("name in post " +name.name);
     console.log("body content = " + JSON.stringify(req.body));
     var order = new Order(
@@ -83,7 +96,13 @@ app.post("/add", function (req, res) {
             state: name.state,
             zipcode: name.zipcode,
             logoURL: name.logoURL,
-            website: name.website
+            website: name.website,
+            date: name.date,
+            type: name.type,
+            api: name.api,
+            prize: name.prize,
+            price: name.price,
+            duration: name.duration
         });
     order.save(function(err) {
         if(err) {
@@ -101,7 +120,13 @@ app.post("/add", function (req, res) {
             state: state,
             zipcode: zipcode,
             logoURL: logoURL,
-            website: website
+            website: website,
+            date: name.date,
+            type: name.type,
+            api: name.api,
+            prize: name.prize,
+            price: name.price,
+            duration: name.duration
         });
     order.save(function (err) {
         res.send();
