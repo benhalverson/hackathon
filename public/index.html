@@ -16,7 +16,9 @@
     <input type="text" ng-model="city" placeholder="city"/>
     <input type="text" ng-model="state" placeholder="state"/>
     <input type="text" ng-model="zipcode" placeholder="zipcode"/>
-    <button class="btn btn-primary"ng-click="app.saveOrder()">Save Product</button>
+    <input type="text" ng-model="logoURL" placeholder="logoURL"/>
+    <input type="text" ng-model="website" placeholder="website"/>
+    <button class="btn btn-primary"ng-click="app.saveOrder()">Save</button>
     <table class="table table-striped">
         <thead>
         <th>Product</th>
@@ -25,6 +27,8 @@
         <th>City</th>
         <th>State</th>
         <th>Zipcode</th>
+        <th>Logo URL</th>
+        <th>Website</th>
         </thead>
         <tbody>
         <tr ng-repeat="ord in order">
@@ -34,7 +38,8 @@
          <td>{{ord.city}}</td>
          <td>{{ord.state}}</td>
          <td>{{ord.zipcode}}</td>
-
+         <td>{{ord.logoURL}}</td>
+         <td>{{ord.website}}</td>
         </tr>
         </tbody>
     </table>
