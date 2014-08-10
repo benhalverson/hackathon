@@ -20,13 +20,6 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
         console.log("order : " + JSON.stringify(newOrder));
 
         //TODO: reset fields after adding something to the database
-        //code doesn't work right
-//        var newOrder = {
-//            "name": $scope.name = "",
-//            "description": $scope.description = "",
-//            "price": $scope.price = 0,
-//            "qty": $scope.qty = 0
-//        };
         $http.post(url + "/add", {name:newOrder}).success(function () {
             loadOrder();
         })
@@ -37,4 +30,6 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
         })
     }
     loadOrder();
+
+
 });

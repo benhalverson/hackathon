@@ -45,11 +45,13 @@ conn.once("open", function() {
 });
 
 // creating a model for mongodb
-var Order = mongoose.model('Product', {
+var Order = mongoose.model('hackathon', {
     name: String,
     description: String,
-    price: Number,
-    qty: Number
+    address: String,
+    city: String,
+    state: String,
+    zipcode: String
 });
 
 //query the database
@@ -63,15 +65,19 @@ app.get("/", function(req, res){
 app.post("/add", function (req, res) {
     var name = req.body.name;
     var description = req.body.description;
-    var price = req.body.price;
-    var qty = req.body.qty;
+    var address = req.body.address;
+    var city = req.body.city;
+    var state = req.body.state;
+    var zipcode = req.body.zipcode;
     console.log("name in post " +name.name);
     console.log("body content = " + JSON.stringify(req.body));
     var order = new Order(
         {   name: name.name,
             description: name.description,
-            price: name.price,
-            qty: name.qty
+            address: name.address,
+            city: name.city,
+            state: name.state,
+            zipcode: name.zipcode
         });
     order.save(function(err) {
         if(err) {
@@ -84,8 +90,11 @@ app.post("/add", function (req, res) {
      var order = Order(
         {name: name,
             description: description,
-            price: price,
-            qty: qty});
+            address: address,
+            city: city,
+            state: state,
+            zipcode: zipcode
+        });
     order.save(function (err) {
         res.send();
     })
