@@ -12,24 +12,28 @@
 
     <input type="text" ng-model="name" placeholder="Product Name"/>
     <input type="text" ng-model="description" placeholder="Product Description"/>
-    <input type="number"  ng-model="qty" placeholder="Qty"/>
-    <input type="number" min="0" ng-model="price" placeholder="Price"/>
+    <input type="text" ng-model="address" placeholder="address"/>
+    <input type="text" ng-model="city" placeholder="city"/>
+    <input type="text" ng-model="state" placeholder="state"/>
+    <input type="text" ng-model="zipcode" placeholder="zipcode"/>
     <button class="btn btn-primary"ng-click="app.saveOrder()">Save Product</button>
     <table class="table table-striped">
         <thead>
         <th>Product</th>
         <th>Description</th>
-        <th>Qty</th>
-        <th>Price</th>
-        <th>Extended Price</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zipcode</th>
         </thead>
         <tbody>
         <tr ng-repeat="ord in order">
          <td>{{ord.name}}</td>
          <td>{{ord.description}}</td>
-         <td>{{ord.price | number}}</td>
-         <td>{{ord.qty | number}}</td>
-         <td>{{ord.price * ord.qty | currency}}</td>
+         <td>{{ord.address}}</td>
+         <td>{{ord.city}}</td>
+         <td>{{ord.state}}</td>
+         <td>{{ord.zipcode}}</td>
 
         </tr>
         </tbody>

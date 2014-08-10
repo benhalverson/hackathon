@@ -13,8 +13,10 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
         var newOrder = {
             "name": $scope.name,
             "description": $scope.description,
-            "price": $scope.price,
-            "qty": $scope.qty};
+            "address": $scope.address,
+            "city": $scope.city,
+            "state": $scope.state,
+            "zipcode": $scope.zipcode};
         console.log($scope.name);
 
         console.log("order : " + JSON.stringify(newOrder));
