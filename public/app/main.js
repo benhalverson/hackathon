@@ -1,6 +1,6 @@
-var orderManagement = angular.module("orderManagement", []);
+var hackathonsite = angular.module("hackathonsite", []);
 
-orderManagement.controller("AppCtrl", function ($http, $scope) {
+hackathonsite.controller("AppCtrl", function ($http, $scope) {
     var app = this;
     //var url = "localhost:27017"; // for testing on local machine
 
@@ -10,7 +10,7 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
 
     app.saveOrder = function (newOrder) {
         //create a new order object
-        var newOrder = {
+        var newListing = {
             "name": $scope.name,
             "description": $scope.description,
             "address": $scope.address,
@@ -28,10 +28,10 @@ orderManagement.controller("AppCtrl", function ($http, $scope) {
         };
         console.log($scope.name);
 
-        console.log("order : " + JSON.stringify(newOrder));
+        console.log("order : " + JSON.stringify(newListing));
 
         //TODO: reset fields after adding something to the database
-        $http.post(url + "/add", {name:newOrder}).success(function () {
+        $http.post(url + "/add", {name:newListing}).success(function () {
             loadOrder();
         })
     };

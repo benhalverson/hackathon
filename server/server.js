@@ -88,7 +88,7 @@ app.post("/add", function (req, res) {
 
     //console.log("name in post " +name.name);
     console.log("body content = " + JSON.stringify(req.body));
-    var order = new Order(
+    var listing = new Listing(
         {   name: name.name,
             description: name.description,
             address: name.address,
@@ -104,7 +104,7 @@ app.post("/add", function (req, res) {
             price: name.price,
             duration: name.duration
         });
-    order.save(function(err) {
+    listing.save(function(err) {
         if(err) {
             console.log("Error! ", err);
         }else
@@ -112,7 +112,7 @@ app.post("/add", function (req, res) {
             console.log("Saved");
         }
     });
-     var order = Order(
+     var listing = Listing(
         {name: name,
             description: description,
             address: address,
@@ -128,7 +128,7 @@ app.post("/add", function (req, res) {
             price: price,
             duration: duration
         });
-    order.save(function (err) {
+    listing.save(function (err) {
         res.send();
     })
 });
