@@ -8,7 +8,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
     var url = "http://shrouded-stream-1514.herokuapp.com";
 
 
-    app.saveOrder = function (newOrder) {
+    app.saveOrder = function (newlisting) {
         //create a new order object
         var newListing = {
             "name": $scope.name,
@@ -36,8 +36,8 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         })
     };
     function loadOrder() {
-        $http.get(url).success(function (order) {
-            $scope.order = order;
+        $http.get(url).success(function (listing) {
+            $scope.listing = listing;
         })
     }
     loadOrder();

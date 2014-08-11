@@ -44,20 +44,20 @@
         </thead>
         <tbody>
         <tr ng-repeat="list in listing">
-         <td>{{ord.name}}</td>
-         <td>{{ord.description}}</td>
-         <td>{{ord.address}}</td>
-         <td>{{ord.city}}</td>
-         <td>{{ord.state}}</td>
-         <td>{{ord.zipcode}}</td>
-         <td><img src="{{ord.logoURL}}" /></td>
-         <td><a href="{{ord.website}}">{{ord.website}}</a></td>
-            <td>{{ord.date | date: MM/dd/yyyy }}</td>
-            <td>{{ord.type}}</td>
-            <td>{{ord.api}}</td>
-            <td>{{ord.prize | currency}}</td>
-            <td>{{ord.price | currency}}</td>
-            <td>{{ord.duration}}</td>
+         <td>{{list.name}}</td>
+         <td>{{list.description}}</td>
+         <td>{{list.address}}</td>
+         <td>{{list.city}}</td>
+         <td>{{list.state}}</td>
+         <td>{{list.zipcode}}</td>
+         <td><img src="{{list.logoURL}}" /></td>
+         <td><a href="{{list.website}}">{{list.website}}</a></td>
+            <td>{{list.date | date: MM/dd/yyyy }}</td>
+            <td>{{list.type}}</td>
+            <td>{{list.api}}</td>
+            <td>{{list.prize | currency}}</td>
+            <td>{{list.price | currency}}</td>
+            <td>{{list.duration}}</td>
         </tr>
         </tbody>
 
