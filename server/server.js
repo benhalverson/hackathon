@@ -121,12 +121,12 @@ app.post("/add", function (req, res) {
             zipcode: zipcode,
             logoURL: logoURL,
             website: website,
-            date: name.date,
-            type: name.type,
-            api: name.api,
-            prize: name.prize,
-            price: name.price,
-            duration: name.duration
+            date: date,
+            type: type,
+            api: api,
+            prize: prize,
+            price: price,
+            duration: duration
         });
     order.save(function (err) {
         res.send();

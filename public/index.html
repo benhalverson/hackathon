@@ -17,7 +17,13 @@
     <input type="text" ng-model="state" placeholder="state"/>
     <input type="text" ng-model="zipcode" placeholder="zipcode"/>
     <input type="text" ng-model="logoURL" placeholder="logoURL"/>
-    <input type="text" ng-model="website" placeholder="website"/>
+    <input type="text" ng-model="website" placeholder="website"/><br />
+    <input type="date" ng-model="date" />
+    <input type="text" ng-model="type" placeholder="software, hardware, mobile, wearable"/>
+    <input type="number" ng-model="api" max="10" maxlength="10" placeholder="# of API's"/>
+    <input type="number" ng-model="prize" placeholder="Total prize money"/>
+    <input type="number" ng-model="price" placeholder="Cost to enter"/>
+    <input type="text" ng-model="duration" placeholder="How long is the hackathon"/>
     <button class="btn btn-primary"ng-click="app.saveOrder()">Save</button>
     <table class="table table-striped">
         <thead>
@@ -29,6 +35,12 @@
         <th>Zipcode</th>
         <th>Logo URL</th>
         <th>Website</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th># of API's</th>
+        <th>Prize</th>
+        <th>Price</th>
+        <th>Duration</th>
         </thead>
         <tbody>
         <tr ng-repeat="ord in order">
@@ -40,9 +52,14 @@
          <td>{{ord.zipcode}}</td>
          <td><img src="{{ord.logoURL}}" /></td>
          <td><a href="{{ord.website}}">{{ord.website}}</a></td>
+            <td>{{ord.date | date: MM/dd/yyyy }}</td>
+            <td>{{ord.type}}</td>
+            <td>{{ord.api}}</td>
+            <td>{{ord.prize | currency}}</td>
+            <td>{{ord.price | currency}}</td>
+            <td>{{ord.duration}}</td>
         </tr>
         </tbody>
-    </table>
 
 </div>
 
