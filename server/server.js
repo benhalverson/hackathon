@@ -65,7 +65,7 @@ var listing = mongoose.model('hackathon', {
 //query the database
 app.get("/", function(req, res){
     listing.find(function(err, listing) {
-        console.log("order from server " + listing);
+        console.log("listing from server " + listing);
         res.send(listing);
     });
 
