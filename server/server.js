@@ -45,7 +45,7 @@ conn.once("open", function() {
 });
 
 // creating a model for mongodb
-var Order = mongoose.model('hackathon', {
+var listing = mongoose.model('hackathon', {
     name: String,
     description: String,
     address: String,
