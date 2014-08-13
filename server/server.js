@@ -130,12 +130,13 @@ app.post("/add", function (req, res) {
         });
     listing.save(function (err) {
         res.send();
+        console.log("saving to database")
     })
 });
    //remove a listing
-    app.post("/remove", function (req, res) {
-        res.send("removing stub");
-    });
+//    app.post("/remove", function (req, res) {
+//        res.send("removing stub");
+//    });
 
 
 
