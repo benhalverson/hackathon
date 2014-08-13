@@ -64,7 +64,7 @@ var listing = mongoose.model('hackathon', {
 
 //query the database
 app.get("/", function(req, res){
-    listing.find({fields},function(err, listing) {
+    listing.find({fields: "abc"},function(err, listing) {
         console.log("listing from server " + listing);
         if(err){
             console.log("an error has occurred: "+ err);
