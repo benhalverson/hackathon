@@ -36,6 +36,14 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
             loadOrder();
         })
     };
+
+    app.removeItem = function (itemName) {
+        $http.post(url + "/remove/"+itemName).success(function () {
+            console.log("removing listing");
+            loadOrder();
+        })
+    };
+
     function loadOrder() {
         $http.get(url).success(function (listing) {
             $scope.listing = listing;

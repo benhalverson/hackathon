@@ -70,69 +70,84 @@ app.get("/", function(req, res){
     });
 
 //posting to mongo database
-app.post("/add", function (req, res) {
-    var name = req.body.name;
-    var description = req.body.description;
-    var address = req.body.address;
-    var city = req.body.city;
-    var state = req.body.state;
-    var zipcode = req.body.zipcode;
-    var logoURL = req.body.logoURL;
-    var website = req.body.website;
-    var date = req.body.date;
-    var type = req.body.type;
-    var api = req.body.api;
-    var prize = req.body.prize;
-    var price = req.body.price;
-    var duration = req.body.duration;
+    app.post("/add", function (req, res) {
+        var name = req.body.name;
+        var description = req.body.description;
+        var address = req.body.address;
+        var city = req.body.city;
+        var state = req.body.state;
+        var zipcode = req.body.zipcode;
+        var logoURL = req.body.logoURL;
+        var website = req.body.website;
+        var date = req.body.date;
+        var type = req.body.type;
+        var api = req.body.api;
+        var prize = req.body.prize;
+        var price = req.body.price;
+        var duration = req.body.duration;
 
-    //console.log("name in post " +name.name);
-    console.log("body content = " + JSON.stringify(req.body));
-    var listing = new Listing(
-        {   name: name.name,
-            description: name.description,
-            address: name.address,
-            city: name.city,
-            state: name.state,
-            zipcode: name.zipcode,
-            logoURL: name.logoURL,
-            website: name.website,
-            date: name.date,
-            type: name.type,
-            api: name.api,
-            prize: name.prize,
-            price: name.price,
-            duration: name.duration
+        //console.log("name in post " +name.name);
+        console.log("body content = " + JSON.stringify(req.body));
+        var listing = new Listing(
+            {   name: name.name,
+                description: name.description,
+                address: name.address,
+                city: name.city,
+                state: name.state,
+                zipcode: name.zipcode,
+                logoURL: name.logoURL,
+                website: name.website,
+                date: name.date,
+                type: name.type,
+                api: name.api,
+                prize: name.prize,
+                price: name.price,
+                duration: name.duration
+            });
+        listing.save(function(err) {
+            if(err) {
+                console.log("Error! ", err);
+            }else
+            {
+                console.log("Saved");
+            }
         });
-    listing.save(function(err) {
-        if(err) {
-            console.log("Error! ", err);
-        }else
-        {
-            console.log("Saved");
-        }
+        var listing = Listing(
+            {name: name,
+                description: description,
+                address: address,
+                city: city,
+                state: state,
+                zipcode: zipcode,
+                logoURL: logoURL,
+                website: website,
+                date: name.date,
+                type: name.type,
+                api: name.api,
+                prize: name.prize,
+                price: name.price,
+                duration: name.duration
+            });
+        listing.save(function (err) {
+            res.send();
+        })
     });
-     var listing = Listing(
-        {name: name,
-            description: description,
-            address: address,
-            city: city,
-            state: state,
-            zipcode: zipcode,
-            logoURL: logoURL,
-            website: website,
-            date: name.date,
-            type: name.type,
-            api: name.api,
-            prize: name.prize,
-            price: name.price,
-            duration: name.duration
-        });
-    listing.save(function (err) {
-        res.send();
-    })
 });
+
+
+//db.inventory.remove( { type : "food" } )
+// remove listing
+app.post("/remove/:id", function (req, res) {
+    console.log("ready to remove");
+    Listing.remove({"name": "abc"},function(err) {
+        console.log("remove from server ");
+
+      //  res.send(listing);
+    });
+
 });
+
+
 var port = Number(process.env.PORT || 3000);
 app.listen(port, function() {
     console.log("Listening on " + port);
