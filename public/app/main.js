@@ -26,7 +26,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
             "price": $scope.price,
             "duration": $scope.duration
         };
-        console.log($scope.newListing);
+        console.log($scope.Listing);
 
         console.log("new listing : " + JSON.stringify(newListing));
 
@@ -37,8 +37,8 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         })
     };
 
-    app.removeItem = function (itemName) {
-        $http.post(url + "/remove/"+itemName).success(function () {
+    app.removeItem = function () {
+        $http.post(url + "/remove/:_id").success(function () {
             console.log("removing listing");
             loadOrder();
         })

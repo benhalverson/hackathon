@@ -139,7 +139,7 @@ app.get("/", function(req, res){
 // remove listing
 app.post("/remove/:id", function (req, res) {
     console.log("ready to remove");
-    Listing.remove({"name": "abc"},function(err) {
+    Listing.remove({"_id": "abc"},function(err) {
         console.log("remove from server ");
 
       //  res.send(listing);

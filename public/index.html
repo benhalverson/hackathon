@@ -25,7 +25,7 @@
     <input type="number" ng-model="price" placeholder="Cost to enter"/>
     <input type="text" ng-model="duration" placeholder="How long is the hackathon"/>
     <button class="btn btn-primary"ng-click="app.saveListing()">Save</button>
-    <button class="btn btn-primary"ng-click="app.removeItem()">Save</button>
+    <button class="btn btn-primary"ng-click="app.removeItem()">Delete</button>
 
     <table class="table table-striped">
         <thead>
@@ -52,8 +52,8 @@
          <td>{{list.city}}</td>
          <td>{{list.state}}</td>
          <td>{{list.zipcode}}</td>
-         <td><img src="{{list.logoURL}}" /></td>
-         <!--<td><a href="{{list.website}}">{{list.website}}</a></td>-->
+         <td><img src="{{list.logoURL}}" width="400" height="400"/></td>
+         <td><a href="{{list.website}}">{{list.website}}</a></td>
             <td>{{list.date | date: MM/dd/yyyy }}</td>
             <td>{{list.type}}</td>
             <td>{{list.api}}</td>
