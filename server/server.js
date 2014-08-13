@@ -113,7 +113,7 @@ app.post("/add", function (req, res) {
         }
     });
      var listing = Listing(
-        {name: name,
+        {name: name = "test",
             description: description,
             address: address,
             city: city,
