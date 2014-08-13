@@ -2,7 +2,7 @@ var hackathonsite = angular.module("hackathonsite", []);
 
 hackathonsite.controller("AppCtrl", function ($http, $scope) {
     var app = this;
-    //var url = "localhost:27017/"; // for testing on local machine
+   // var url = "mongodb://localhost:27017/hackathon"; // for testing on local machine
 
     // url is where you host your server code
     var url = "http://shrouded-stream-1514.herokuapp.com";
@@ -17,7 +17,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
             "city": $scope.city,
             "state": $scope.state,
             "zipcode": $scope.zipcode,
-            "logoURL": $scope.logoURL,
+           // "logoURL": $scope.logoURL,
             "website": $scope.website,
             "date": $scope.date,
             "type": $scope.type,
@@ -33,7 +33,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         //TODO: reset fields after adding something to the database
         $http.post(url + "/add", {name:newListing}).success(function () {
             console.log("posting");
-            //loadOrder();
+            loadOrder();
         })
     };
     function loadOrder() {

@@ -10,7 +10,7 @@
 <body ng-app="hackathonsite">
 <div ng-controller="AppCtrl as app">
 
-    <input type="text" ng-model="name" placeholder="Name"/>
+    <input type="text" ng-model="name" placeholder="Name" value="test"/>
     <input type="text" ng-model="description" placeholder="Description"/>
     <input type="text" ng-model="address" placeholder="address"/>
     <input type="text" ng-model="city" placeholder="city"/>
@@ -51,7 +51,7 @@
          <td>{{list.state}}</td>
          <td>{{list.zipcode}}</td>
          <td><img src="{{list.logoURL}}" /></td>
-         <td><a href="{{list.website}}">{{list.website}}</a></td>
+         <!--<td><a href="{{list.website}}">{{list.website}}</a></td>-->
             <td>{{list.date | date: MM/dd/yyyy }}</td>
             <td>{{list.type}}</td>
             <td>{{list.api}}</td>

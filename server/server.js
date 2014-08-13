@@ -37,7 +37,7 @@ var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
 mongoose.connect(mongooseUri, options);
 var conn = mongoose.connection;
-
+mongoose.set("debug", true);
 conn.on("error", console.error.bind(console, "connection error:"));
 conn.once("open", function() {
     console.log("connected to the server!")
@@ -57,7 +57,7 @@ var listing = mongoose.model('hackathon', {
     date: Date,
     type: String,
     api: Number,
-    prize: Number,
+    prize: String,
     price: Number,
     duration: String
 });
@@ -113,7 +113,7 @@ app.post("/add", function (req, res) {
         }
     });
      var listing = Listing(
-        {name: name = "test",
+        {name: name,
             description: description,
             address: address,
             city: city,
