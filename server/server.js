@@ -32,12 +32,12 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 
 //localhost code
 //var mongodbUri = "mongodb://localhost:27017";
-var mongodbUri = "mongodb://admin:admin123@ds033669.mongolab.com:33669/heroku_app27165432";
+var mongodbUri = "mongodb://admin:admin123@ds053419.mongolab.com:53419/heroku_app28010960";
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
 mongoose.connect(mongooseUri, options);
 var conn = mongoose.connection;
-//mongoose.set("debug", true);
+
 conn.on("error", console.error.bind(console, "connection error:"));
 conn.once("open", function() {
     console.log("connected to the server!")
@@ -45,19 +45,19 @@ conn.once("open", function() {
 });
 
 // creating a model for mongodb
-var listing = mongoose.model('hackathon', {
+var Listing = mongoose.model('hackathon', {
     name: String,
     description: String,
     address: String,
     city: String,
     state: String,
-    zipcode: Number,
+    zipcode: String,
     logoURL: String,
     website: String,
-    date: Date,
+    date: String,
     type: String,
     api: Number,
-    prize: String,
+    prize: Number,
     price: Number,
     duration: String
 });
@@ -66,12 +66,6 @@ var listing = mongoose.model('hackathon', {
 app.get("/", function(req, res){
     listing.find(function(err, listing) {
         console.log("listing from server " + listing);
-        if(err){
-            console.log("an error has occurred: "+ err);
-        }else{
-            console.log("no error");
-        }
-
         res.send(listing);
     });
 
@@ -127,25 +121,17 @@ app.post("/add", function (req, res) {
             zipcode: zipcode,
             logoURL: logoURL,
             website: website,
-            date: date,
-            type: type,
-            api: api,
-            prize: prize,
-            price: price,
-            duration: duration
+            date: name.date,
+            type: name.type,
+            api: name.api,
+            prize: name.prize,
+            price: name.price,
+            duration: name.duration
         });
     listing.save(function (err) {
         res.send();
-        console.log("saving to database")
     })
 });
-   //remove a listing
-//    app.post("/remove", function (req, res) {
-//        res.send("removing stub");
-//    });
-
-
-
 });
 var port = Number(process.env.PORT || 3000);
 app.listen(port, function() {
