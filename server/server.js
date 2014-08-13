@@ -32,7 +32,7 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
 
 //localhost code
 //var mongodbUri = "mongodb://localhost:27017";
-var mongodbUri = "mongodb://admin:admin123@ds053419.mongolab.com:53419/heroku_app28010960";
+var mongodbUri = "mongodb://admin:admin123@ds033669.mongolab.com:33669/heroku_app27165432";
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
 mongoose.connect(mongooseUri, options);
