@@ -54,7 +54,7 @@ var Order = mongoose.model('hackathon', {
     zipcode: String,
     logoURL: String,
     website: String,
-    date: String,
+    date: Date,
     type: String,
     api: Number,
     prize: Number,
@@ -64,9 +64,9 @@ var Order = mongoose.model('hackathon', {
 
 //query the database
 app.get("/", function(req, res){
-    Order.find(function(err, order) {
-        console.log("order from server " + order);
-        res.send(order);
+    Order.find(function(err, listing) {
+        console.log("order from server " + listing);
+        res.send(listing);
     });
 
 //posting to mongo database
@@ -132,6 +132,13 @@ app.post("/add", function (req, res) {
         res.send();
     })
 });
+   //remove a listing
+    app.post("/remove", function (req, res) {
+
+    });
+
+
+
 });
 var port = Number(process.env.PORT || 3000);
 app.listen(port, function() {

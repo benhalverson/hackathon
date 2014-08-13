@@ -28,7 +28,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         };
         console.log($scope.name);
 
-        console.log("order : " + JSON.stringify(newListing));
+        console.log("new listing : " + JSON.stringify(newListing));
 
         //TODO: reset fields after adding something to the database
         $http.post(url + "/add", {name:newListing}).success(function () {
