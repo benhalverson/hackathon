@@ -51,7 +51,7 @@ var Order = mongoose.model('hackathon', {
     address: String,
     city: String,
     state: String,
-    zipcode: String,
+    zipcode: Number,
     logoURL: String,
     website: String,
     date: Date,
