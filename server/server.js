@@ -37,7 +37,7 @@ var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 
 mongoose.connect(mongooseUri, options);
 var conn = mongoose.connection;
-mongoose.set("debug", true);
+//mongoose.set("debug", true);
 conn.on("error", console.error.bind(console, "connection error:"));
 conn.once("open", function() {
     console.log("connected to the server!")
@@ -66,6 +66,12 @@ var listing = mongoose.model('hackathon', {
 app.get("/", function(req, res){
     listing.find(function(err, listing) {
         console.log("listing from server " + listing);
+        if(err){
+            console.log("an error has occurred: "+ err);
+        }else{
+            console.log("no error");
+        }
+
         res.send(listing);
     });
 
