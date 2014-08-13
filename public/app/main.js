@@ -5,8 +5,8 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
     //var url = "mongodb://localhost:27017/hackathon"; // for testing on local machine
 
     // url is where you host your server code
-    //var url = "http://shrouded-stream-1514.herokuapp.com";
-      var url = "http://pure-citadel-9795.herokuapp.com";
+    var url = "http://shrouded-stream-1514.herokuapp.com";
+      //var url = "http://pure-citadel-9795.herokuapp.com";
 
     app.saveListing = function (newlisting) {
         //create a new order object
