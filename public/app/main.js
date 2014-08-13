@@ -38,6 +38,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
     function loadOrder() {
         $http.get(url).success(function (listing) {
             $scope.listing = listing;
+            console.log("loading");
         })
     }
     loadOrder();
