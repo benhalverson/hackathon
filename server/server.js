@@ -45,7 +45,7 @@ conn.once("open", function() {
 });
 
 // creating a model for mongodb
-var Order = mongoose.model('hackathon', {
+var Listing = mongoose.model('hackathon', {
     name: String,
     description: String,
     address: String,
@@ -64,9 +64,9 @@ var Order = mongoose.model('hackathon', {
 
 //query the database
 app.get("/", function(req, res){
-    Order.find(function(err, order) {
-        console.log("order from server " + order);
-        res.send(order);
+    listing.find(function(err, listing) {
+        console.log("listing from server " + listing);
+        res.send(listing);
     });
 
 //posting to mongo database
@@ -88,7 +88,7 @@ app.post("/add", function (req, res) {
 
     //console.log("name in post " +name.name);
     console.log("body content = " + JSON.stringify(req.body));
-    var order = new Order(
+    var listing = new Listing(
         {   name: name.name,
             description: name.description,
             address: name.address,
@@ -104,7 +104,7 @@ app.post("/add", function (req, res) {
             price: name.price,
             duration: name.duration
         });
-    order.save(function(err) {
+    listing.save(function(err) {
         if(err) {
             console.log("Error! ", err);
         }else
@@ -112,7 +112,7 @@ app.post("/add", function (req, res) {
             console.log("Saved");
         }
     });
-     var order = Order(
+     var listing = Listing(
         {name: name,
             description: description,
             address: address,
@@ -128,7 +128,7 @@ app.post("/add", function (req, res) {
             price: name.price,
             duration: name.duration
         });
-    order.save(function (err) {
+    listing.save(function (err) {
         res.send();
     })
 });
