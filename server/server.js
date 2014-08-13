@@ -134,7 +134,7 @@ app.post("/add", function (req, res) {
 });
    //remove a listing
     app.post("/remove", function (req, res) {
-
+        res.send("removing stub");
     });
 
 
