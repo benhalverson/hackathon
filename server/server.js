@@ -134,6 +134,25 @@ app.get("/", function(req, res){
     });
 });
 
+//read a single listing by ID
+app.put('/update/:id', function(req,res){
+   return Listing.findById(req.params.id, function(err, listing){
+       if(!err){
+           return res.send(listing);
+       }else{
+           return console.log(err);
+       }
+   });
+});
+
+//update a single listing by ID
+app.put('/update/:id', function(req, res){
+   return Listing.findById(req.params.id, function(err, listing){
+      listing.name = req.body.name;
+      listing.description = req.body.description;
+      //TODO: addmore later
+   });
+});
 
 //db.inventory.remove( { type : "food" } )
 // remove listing
