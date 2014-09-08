@@ -5,33 +5,44 @@
     <title></title>
 
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 <body ng-app="hackathonsite">
 <div ng-controller="AppCtrl as app">
 
-    <input type="text" ng-model="name" placeholder="Name" value="test"/>
-    <input type="text" ng-model="description" placeholder="Description"/>
-    <input type="text" ng-model="address" placeholder="address"/>
-    <input type="text" ng-model="city" placeholder="city"/>
-    <input type="text" ng-model="state" placeholder="state"/>
-    <input type="text" ng-model="zipcode" placeholder="zipcode"/>
-    <input type="text" ng-model="logoURL" placeholder="logoURL"/>
-    <input type="text" ng-model="website" placeholder="website"/><br />
-    <input type="date" ng-model="date" />
-    <input type="text" ng-model="type" placeholder="software, hardware, mobile, wearable"/>
-    <input type="number" ng-model="api" max="10" maxlength="3" placeholder="# of API's"/>
-    <input type="number" ng-model="prize" placeholder="Total prize money"/>
-    <input type="number" ng-model="price" placeholder="Cost to enter"/>
-    <input type="text" ng-model="duration" placeholder="How long is the hackathon"/>
-    <button class="btn btn-primary"ng-click="app.saveListing()">Save</button>
-    <button class="btn btn-primary"ng-click="app.removeItem()">Delete</button>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="text" ng-model="name" placeholder="Name" value="test"/>
+                <input type="text" ng-model="description" placeholder="Description"/>
+                <input type="text" ng-model="city" placeholder="city"/>
+                <input type="text" ng-model="state" placeholder="state"/>
+                <input type="text" ng-model="zipcode" placeholder="zipcode"/>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" ng-model="logoURL" placeholder="logoURL"/>
+                <input type="text" ng-model="website" placeholder="website"/>
+                <input type="date" ng-model="date" />
+                <input type="text" ng-model="type" placeholder="software, hardware, mobile, wearable"/>
+            </div>
+            <div class="col-sm-4">
+                <input type="number" ng-model="api" max="10" maxlength="3" placeholder="# of API's"/>
+                <input type="number" ng-model="prize" placeholder="Total prize money"/>
+                <input type="number" ng-model="price" placeholder="Cost to enter"/>
+                <input type="text" ng-model="duration" placeholder="How long is the hackathon"/>
+                <!--<button class="btn btn-primary"ng-click="app.removeItem()">Delete</button>-->
+            </div>
+            <div class="clear"></div> 
+        </div>
+        <button class="btn btn-primary"ng-click="app.saveListing()">Save</button>
+    </div>
+    <br>
+    <br>
     <table>
         <thead>
         <th>Hackathon Name</th>
         <th>Description</th>
-        <th>Address</th>
         <th>City</th>
         <th>State</th>
         <th>Zipcode</th>
@@ -46,14 +57,13 @@
         </thead>
         <tbody>
         <tr ng-repeat="list in listing">
-         <td>{{list.name}}</td>
-         <td>{{list.description}}</td>
-         <td>{{list.address}}</td>
-         <td>{{list.city}}</td>
-         <td>{{list.state}}</td>
-         <td>{{list.zipcode}}</td>
-         <td><img src="{{list.logoURL}}" width="400" height="400"/></td>
-         <td><a href="{{list.website}}">{{list.website}}</a></td>
+            <td>{{list.name}}</td>
+            <td>{{list.description}}</td>
+            <td>{{list.city}}</td>
+            <td>{{list.state}}</td>
+            <td>{{list.zipcode}}</td>
+            <td class="logo"><img src="{{list.logoURL}}" class="logoImg"/></td>
+            <td>{{list.website}}</td>
             <td>{{list.date | date: MM/dd/yyyy }}</td>
             <td>{{list.type}}</td>
             <td>{{list.api}}</td>

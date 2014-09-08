@@ -71,38 +71,25 @@ app.get("/", function(req, res){
 
 //posting to mongo database
     app.post("/add", function (req, res) {
-        var name = req.body.name;
-        var description = req.body.description;
-        var address = req.body.address;
-        var city = req.body.city;
-        var state = req.body.state;
-        var zipcode = req.body.zipcode;
-        var logoURL = req.body.logoURL;
-        var website = req.body.website;
-        var date = req.body.date;
-        var type = req.body.type;
-        var api = req.body.api;
-        var prize = req.body.prize;
-        var price = req.body.price;
-        var duration = req.body.duration;
 
         //console.log("name in post " +name.name);
-        console.log("body content = " + JSON.stringify(req.body));
+        //console.log("body content = " + JSON.stringify(req.body));
         var listing = new Listing(
-            {   name: name.name,
-                description: name.description,
-                address: name.address,
-                city: name.city,
-                state: name.state,
-                zipcode: name.zipcode,
-                logoURL: name.logoURL,
-                website: name.website,
-                date: name.date,
-                type: name.type,
-                api: name.api,
-                prize: name.prize,
-                price: name.price,
-                duration: name.duration
+            {   
+                name: req.body.name,
+                description: req.body.description,
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                zipcode: req.body.zipcode,
+                logoURL: req.body.logoURL,
+                website: req.body.website,
+                date: req.body.date,
+                type: req.body.type,
+                api: req.body.api,
+                prize: req.body.prize,
+                price: req.body.price,
+                duration: req.body.duration
             });
         listing.save(function(err) {
             if(err) {
