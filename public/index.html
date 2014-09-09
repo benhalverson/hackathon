@@ -14,28 +14,28 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <input type="text" ng-model="name" placeholder="Name" value="test"/>
-                <input type="text" ng-model="description" placeholder="Description"/>
-                <input type="text" ng-model="city" placeholder="city"/>
-                <input type="text" ng-model="state" placeholder="state"/>
-                <input type="text" ng-model="zipcode" placeholder="zipcode"/>
+                <input id="name" type="text" ng-model="name" placeholder="Name" value="test"/>
+                <input id="description" type="text" ng-model="description" placeholder="Description"/>
+                <input id="city" type="text" ng-model="city" placeholder="city"/>
+                <input id="state" type="text" ng-model="state" placeholder="state"/>
+                <input id="zipcode" type="text" ng-model="zipcode" placeholder="zipcode"/>
             </div>
             <div class="col-sm-4">
-                <input type="text" ng-model="logoURL" placeholder="logoURL"/>
-                <input type="text" ng-model="website" placeholder="website"/>
-                <input type="date" ng-model="date" />
-                <input type="text" ng-model="type" placeholder="software, hardware, mobile, wearable"/>
+                <input id="logoURL" type="text" ng-model="logoURL" placeholder="logoURL"/>
+                <input id="website" type="text" ng-model="website" placeholder="website"/>
+                <input id="date" type="date" ng-model="date" />
+                <input id="type" type="text" ng-model="type" placeholder="software, hardware, mobile, wearable"/>
             </div>
             <div class="col-sm-4">
-                <input type="number" ng-model="api" max="10" maxlength="3" placeholder="# of API's"/>
-                <input type="number" ng-model="prize" placeholder="Total prize money"/>
-                <input type="number" ng-model="price" placeholder="Cost to enter"/>
-                <input type="text" ng-model="duration" placeholder="How long is the hackathon"/>
+                <input id="api" type="number" ng-model="api" max="10" maxlength="3" placeholder="# of API's"/>
+                <input id="prize" type="number" ng-model="prize" placeholder="Total prize money"/>
+                <input id="price" type="number" ng-model="price" placeholder="Cost to enter"/>
+                <input id="duration" type="text" ng-model="duration" placeholder="How long is the hackathon"/>
                 <!--<button class="btn btn-primary"ng-click="app.removeItem()">Delete</button>-->
             </div>
             <div class="clear"></div> 
         </div>
-        <button class="btn btn-primary"ng-click="app.saveListing()">Save</button>
+        <button class="btn btn-primary" ng-click="check();">Save</button>
     </div>
     <br>
     <br>
