@@ -109,6 +109,11 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     var day = date.slice(8,10);
     date = month + "/" + day + "/" + year;
 
+    Listing.findByIdAndUpdate(req.params.id, 
+        { 
+            name: 'jason borne' 
+        })
+
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
    //        name: req.body.name,
