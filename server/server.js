@@ -128,11 +128,11 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
             duration: req.params.duration
         }
         }, function () {
-            res.send(req.params.date);
+            res.send(month + "/" + day + "/" + year);
         }
     );
-
-
+06/13/1991
+01/34/6789
     //Listing.update( {_id: id} , {$set: {name: name} });
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
