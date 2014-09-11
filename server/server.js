@@ -128,7 +128,7 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
             duration: req.params.duration
         }
         }, function () {
-            res.send('bingo');
+            res.send(req.params.date);
         }
     );
 
