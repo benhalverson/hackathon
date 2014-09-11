@@ -148,7 +148,7 @@ app.put('/update/:id', function(req, res){
 //     res.send();
 // });
 
-app.get('/remove/:id', function(req, res){
+app.get('/remove/:id', function (req, res){
 
     var id = req.route.params.id;
     res.send("HIT REMOVAL ENDPOINT");
