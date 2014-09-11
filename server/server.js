@@ -103,29 +103,29 @@ app.get("/", function(req, res){
 //update a single listing by ID
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
    
-    // var date = req.params.date;
-    // var year = date.slice(0,4);
-    // var month = date.slice(5,7);
-    // var day = date.slice(8,10);
-    // date = month + "/" + day + "/" + year;
+    var date = req.params.date;
+    var year = date.slice(0,4);
+    var month = date.slice(5,7);
+    var day = date.slice(8,10);
+    date = month + "/" + day + "/" + year;
     var id = req.params.id;
     var name = req.params.name;
 
     Listing.findByIdAndUpdate(id, { $set: 
         { 
-            name: req.body.name,
-            description: req.body.desc,
-            city: req.body.city,
-            state: req.body.state,
-            zipcode: req.body.zipcode,
-            logoURL: req.body.logoURL,
-            website: req.body.website,
+            name: req.params.name,
+            description: req.params.desc,
+            city: req.params.city,
+            state: req.params.state,
+            zipcode: req.params.zipcode,
+            logoURL: req.params.logoURL,
+            website: req.params.website,
             date: date,
-            type: req.body.type,
-            api: req.body.api,
-            prize: req.body.prize,
-            price: req.body.price,
-            duration: req.body.duration
+            type: req.params.type,
+            api: req.params.api,
+            prize: req.params.prize,
+            price: req.params.price,
+            duration: req.params.duration
         }
         }, function () {
             res.send('bingo');
