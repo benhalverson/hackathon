@@ -120,13 +120,8 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     //     }
     // );
 
-    Listing.update(
-       { _id: id },
-       {
-          name: name
-       },
-       { upsert: false }
-    )
+
+    Listing.update( {_id: id} , {$set: {name: name} });
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
