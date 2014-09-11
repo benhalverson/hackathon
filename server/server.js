@@ -111,17 +111,17 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     var id = req.params.id;
     var name = req.params.name
 
-    // Listing.findByIdAndUpdate(id, { $set: 
-    //     { 
-    //         name: name
-    //     }
-    //     }, function () {
-    //         res.send('bingo');
-    //     }
-    // );
+    Listing.findByIdAndUpdate(id, { $set: 
+        { 
+            name: name
+        }
+        }, function () {
+            res.send('bingo');
+        }
+    );
 
 
-    Listing.update( {_id: id} , {$set: {name: name} });
+    //Listing.update( {_id: id} , {$set: {name: name} });
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
