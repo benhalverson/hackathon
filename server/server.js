@@ -108,9 +108,10 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     // var month = date.slice(5,7);
     // var day = date.slice(8,10);
     // date = month + "/" + day + "/" + year;
+    var id = req.params.id;
+    var name = req.params.name;
 
-
-    Listing.findByIdAndUpdate(req.params.id, { $set: 
+    Listing.findByIdAndUpdate(id, { $set: 
         { 
             name: req.body.name,
             description: req.body.desc,
