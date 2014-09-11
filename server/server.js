@@ -102,13 +102,20 @@ app.get("/", function(req, res){
 
 //update a single listing by ID
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
+   
+    var date = rew.params.date;
+    var year = date.slice(0,4);
+    var month = date.slice(5,7);
+    var day = date.slice(8,10);
+    date = month + "/" + day + "/" + year;
+
    Listing.findByIdAndUpdate(req.params.id, function(err, listing){
       listing.name = req.body.name;
       listing.description = req.body.desc;
       listing.city = req.body.city;
       listing.state = req.body.state;
       listing.zipcode = req.body.zipcode;
-      listing.date = req.body.date;
+      listing.date = date;
       listing.logoURL = req.body.logoURL;
       listing.website = req.body.website;
       listing.type = req.body.type;
