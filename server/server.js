@@ -108,13 +108,23 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     // var month = date.slice(5,7);
     // var day = date.slice(8,10);
     // date = month + "/" + day + "/" + year;
-    var id = req.params.id;
-    var name = req.params.name;
 
-    Listing.findByIdAndUpdate(id, { $set: 
+
+    Listing.findByIdAndUpdate(req.params.id, { $set: 
         { 
-            name: req.params.name,
-            description: req.params.desc
+            name: req.body.name,
+            description: req.body.desc,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode,
+            logoURL: req.body.logoURL,
+            website: req.body.website,
+            date: date,
+            type: req.body.type,
+            api: req.body.api,
+            prize: req.body.prize,
+            price: req.body.price,
+            duration: req.body.duration
         }
         }, function () {
             res.send('bingo');
@@ -126,19 +136,19 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
-   //        name: req.body.name,
-   //        description: req.body.desc,
-   //        city: req.body.city,
-   //        state: req.body.state,
-   //        zipcode: req.body.zipcode,
-   //        logoURL: req.body.logoURL,
-   //        website: req.body.website,
-   //        date: date,
-   //        type: req.body.type,
-   //        api: req.body.api,
-   //        prize: req.body.prize,
-   //        price: req.body.price,
-   //        duration: req.body.duration
+          // name: req.body.name,
+          // description: req.body.desc,
+          // city: req.body.city,
+          // state: req.body.state,
+          // zipcode: req.body.zipcode,
+          // logoURL: req.body.logoURL,
+          // website: req.body.website,
+          // date: date,
+          // type: req.body.type,
+          // api: req.body.api,
+          // prize: req.body.prize,
+          // price: req.body.price,
+          // duration: req.body.duration
    //    }, function (err){
    //      if(err) { 
    //          res.send(err);
