@@ -151,8 +151,8 @@ app.put('/update/:id', function(req, res){
 app.get('/remove/:id?', function (req, res){
 
     //var id = req.route.params.id;
-    res.send("HIT REMOVAL ENDPOINT");
     Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
+    res.send("HIT REMOVAL ENDPOINT");
 });
 
 // app.post('/reserve-appointment/:id?', function(req, res){
