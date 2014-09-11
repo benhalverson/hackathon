@@ -112,9 +112,9 @@ app.get("/", function(req, res){
                 price: name.price,
                 duration: name.duration
             });
-        listing.save(function (err) {
-            res.send();
-        })
+        // listing.save(function (err) {
+        //     res.send();
+        // })
     });
 });
 
