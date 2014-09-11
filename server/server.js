@@ -144,7 +144,6 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
    //      }
    //    });
 
-   res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name);
 });
 
 
