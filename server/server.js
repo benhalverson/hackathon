@@ -146,7 +146,7 @@ app.put('/update/:id', function(req, res){
 app.post("/remove/:id", function (req, res) {
     console.log("ready to remove");
     var id = req.route.params.id;
-    Listing.remove( {"_id": ObjectId(id)} );
+    Listing.remove( {"_id": ObjectId("5410f1aa5e605d0200d86b7d")} );
 
 });
 
