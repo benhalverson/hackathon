@@ -104,9 +104,9 @@ app.get("/", function(req, res){
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
    
     var date = req.params.date;
-    var year = date.slice(0,4);
-    var month = date.slice(5,7);
-    var day = date.slice(8,10);
+    var year = date.slice(6,10);
+    var month = date.slice(0,2);
+    var day = date.slice(3,5);
     date = month + "/" + day + "/" + year;
     var id = req.params.id;
     var name = req.params.name;
