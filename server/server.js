@@ -121,10 +121,9 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
         { 
             name: name
         }
-        }, function (err) {
-      if (err) { res.send('error');}
-      else { res.send('bingo'); }
-    });
+        }, function () {
+            res.send('bingo');
+        });
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
