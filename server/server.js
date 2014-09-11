@@ -88,14 +88,14 @@ app.get("/", function(req, res){
                 price: req.body.price,
                 duration: req.body.duration
             });
-        // listing.save(function(err) {
-        //     if(err) {
-        //         console.log("Error! ", err);
-        //     }else
-        //     {
-        //         console.log("Saved");
-        //     }
-        // });
+        listing.save(function(err) {
+            if(err) {
+                console.log("Error! ", err);
+            }else
+            {
+                console.log("Saved");
+            }
+        });
         var listing = Listing(
             {
                 name: name,
