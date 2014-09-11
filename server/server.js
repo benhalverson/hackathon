@@ -109,12 +109,6 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     // var day = date.slice(8,10);
     // date = month + "/" + day + "/" + year;
     var id = req.params.id;
-    // Listing.findByIdAndUpdate(req.params.id, 
-    //     { 
-    //         name: 'jason borne' 
-    //     }, function(){
-    //         res.send('bingo!');
-    //     });
     var name = req.params.name
 
     // Listing.findByIdAndUpdate(id, { $set: 
@@ -123,7 +117,16 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     //     }
     //     }, function () {
     //         res.send('bingo');
-    //     });
+    //     }
+    // );
+
+    Listing.update(
+       { _id: id },
+       {
+          name: name
+       },
+       { upsert: false }
+    )
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
