@@ -103,18 +103,23 @@ app.get("/", function(req, res){
 //update a single listing by ID
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
    
-    var date = req.params.date;
-    var year = date.slice(0,4);
-    var month = date.slice(5,7);
-    var day = date.slice(8,10);
-    date = month + "/" + day + "/" + year;
+    // var date = req.params.date;
+    // var year = date.slice(0,4);
+    // var month = date.slice(5,7);
+    // var day = date.slice(8,10);
+    // date = month + "/" + day + "/" + year;
+    var id = req.params.id;
+    // Listing.findByIdAndUpdate(req.params.id, 
+    //     { 
+    //         name: 'jason borne' 
+    //     }, function(){
+    //         res.send('bingo!');
+    //     });
 
-    Listing.findByIdAndUpdate(req.params.id, 
-        { 
-            name: 'jason borne' 
-        }, function(){
-            res.send('bingo!');
-        });
+    Listing.findByIdAndUpdate(id, { $set: { name: 'TESTING' }}, function (err, listing) {
+      if (err) return handleError(err);
+      res.send(listing);
+    });
 
    // Listing.findByIdAndUpdate( {_id: req.params.id},
    //      {
