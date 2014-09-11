@@ -65,7 +65,7 @@ var Listing = mongoose.model('hackathon', {
 //query the database
 app.get("/", function(req, res){
     Listing.find({},function(err, listing) {
-        console.log("listing from server " + listing);
+        //console.log("listing from server " + listing);
         res.send(listing);
     });
 
@@ -146,7 +146,7 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
    //      }
    //    });
 
-   res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name + "date = " + req.params.date);
+   res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name);
 });
 
 
