@@ -116,7 +116,11 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     //         res.send('bingo!');
     //     });
 
-    Listing.findByIdAndUpdate(id, { $set: { name: 'TESTING' }}, function (err, listing) {
+    Listing.findByIdAndUpdate(id, { $set: 
+        { 
+            name: req.params.name 
+        }
+        }, function (err, listing) {
       if (err) return handleError(err);
       res.send(listing);
     });
