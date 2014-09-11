@@ -141,14 +141,35 @@ app.put('/update/:id', function(req, res){
    });
 });
 
-//db.inventory.remove( { type : "food" } )
 // remove listing
-app.post("/remove/:id", function (req, res) {
-    console.log("ready to remove");
+// app.post("/remove/:id", function (req, res) {
+//     var id = req.route.params.id;
+//     Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
+//     res.send();
+// });
+
+app.post('/remove/:id?', function(req, res){
+
     var id = req.route.params.id;
-    Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
-    res.send();
+    res.send("HIT REMOVAL ENDPOINT");
 });
+
+// app.post('/reserve-appointment/:id?', function(req, res){
+//     var student = req.body.student;
+//     var appointmentID = req.route.params.id;
+
+//     var appointment = mongoose.model('Appointment');
+//     appointment.findByIdAndUpdate( req.route.params.id, {
+//         "student": student,
+//         }, function(err, result) {
+//             if (err){ 
+//                 console.log(err);
+//                 console.log(result);
+//                 res.send("We were unable to reserve that appointment for you.")
+//             }
+//         });
+//     res.send("Appointment Reserved!");
+// });
 
 
 var port = Number(process.env.PORT || 3000);
