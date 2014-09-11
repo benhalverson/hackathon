@@ -117,7 +117,7 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
       listing.price = req.body.price;
       listing.duration = req.body.duration;
    });
-   res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name);
+   res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name + "date = " + req.params.date);
 });
 
 
