@@ -151,7 +151,8 @@ app.put('/update/:id', function(req, res){
 app.get('/remove/:id?', function (req, res){
 
     //var id = req.route.params.id;
-    Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
+    db.hackathons.remove( {"_id" : "5410f1aa5e605d0200d86b7d"});
+    //Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
     res.send("HIT REMOVAL ENDPOINT");
 });
 
