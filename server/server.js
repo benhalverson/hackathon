@@ -157,7 +157,8 @@ app.put('/update/:id', function(req, res){
 // });
 
     app.post("/remove/:id", function (req, res) {
-        var id = req.route.params.id;
+        //var id = req.route.params.id;
+        var id = "541130aececd6d0200679736";
         Listing.remove({"_id": id},function(err) {
             console.log("remove from server ");
 
