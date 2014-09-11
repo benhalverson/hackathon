@@ -72,13 +72,10 @@ app.get("/", function(req, res){
 //posting to mongo database
     app.post("/add", function (req, res) {
 
-        //console.log("name in post " +name.name);
-        //console.log("body content = " + JSON.stringify(req.body));
         var listing = new Listing(
             {   
                 name: req.body.name,
                 description: req.body.description,
-                address: req.body.address,
                 city: req.body.city,
                 state: req.body.state,
                 zipcode: req.body.zipcode,
@@ -99,38 +96,28 @@ app.get("/", function(req, res){
                 console.log("Saved");
             }
         });
-        var listing = Listing(
-            {name: name,
-                description: description,
-                address: address,
-                city: city,
-                state: state,
-                zipcode: zipcode,
-                logoURL: logoURL,
-                website: website,
-                date: name.date,
-                type: name.type,
-                api: name.api,
-                prize: name.prize,
-                price: name.price,
-                duration: name.duration
-            });
-        listing.save(function (err) {
-            res.send();
-        })
+        // var listing = Listing(
+        //     {
+        //         name: name,
+        //         description: description,
+        //         city: city,
+        //         state: state,
+        //         zipcode: zipcode,
+        //         logoURL: logoURL,
+        //         website: website,
+        //         date: name.date,
+        //         type: name.type,
+        //         api: name.api,
+        //         prize: name.prize,
+        //         price: name.price,
+        //         duration: name.duration
+        //     });
+        // listing.save(function (err) {
+        //     res.send();
+        // })
     });
 });
 
-//read a single listing by ID
-// app.put('/update/:id', function(req,res){
-//    return Listing.findById(req.params.id, function(err, listing){
-//        if(!err){
-//            return res.send(listing);
-//        }else{
-//            return console.log(err);
-//        }
-//    });
-// });
 
 //update a single listing by ID
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
@@ -152,20 +139,7 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
    res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name);
 });
 
-// remove listing
-// app.post("/remove/:id", function (req, res) {
-//     var id = req.route.params.id;
-//     Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
-//     res.send();
-// });
 
-// app.get('/remove/:id?', function (req, res){
-
-//     //var id = req.route.params.id;
-//     db.hackathons.remove( {"_id" : "5410f1aa5e605d0200d86b7d"});
-//     //Listing.remove( {"_id": "5410f1aa5e605d0200d86b7d"} );
-//     res.send("HIT REMOVAL ENDPOINT");
-// });
 
     app.post("/remove/:id", function (req, res) {
         var id = req.params.id;
@@ -178,24 +152,6 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
 
     });
 
-
-
-// app.post('/reserve-appointment/:id?', function(req, res){
-//     var student = req.body.student;
-//     var appointmentID = req.route.params.id;
-
-//     var appointment = mongoose.model('Appointment');
-//     appointment.findByIdAndUpdate( req.route.params.id, {
-//         "student": student,
-//         }, function(err, result) {
-//             if (err){ 
-//                 console.log(err);
-//                 console.log(result);
-//                 res.send("We were unable to reserve that appointment for you.")
-//             }
-//         });
-//     res.send("Appointment Reserved!");
-// });
 
 
 var port = Number(process.env.PORT || 3000);
