@@ -122,22 +122,32 @@ app.get("/", function(req, res){
 });
 
 //read a single listing by ID
-app.put('/update/:id', function(req,res){
-   return Listing.findById(req.params.id, function(err, listing){
-       if(!err){
-           return res.send(listing);
-       }else{
-           return console.log(err);
-       }
-   });
-});
+// app.put('/update/:id', function(req,res){
+//    return Listing.findById(req.params.id, function(err, listing){
+//        if(!err){
+//            return res.send(listing);
+//        }else{
+//            return console.log(err);
+//        }
+//    });
+// });
 
 //update a single listing by ID
-app.put('/update/:id', function(req, res){
-   return Listing.findById(req.params.id, function(err, listing){
+app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
+   Listing.findById(req.params.id, function(err, listing){
       listing.name = req.body.name;
-      listing.description = req.body.description;
-      //TODO: addmore later
+      listing.description = req.body.desc;
+      listing.city = req.body.city;
+      listing.state = req.body.state;
+      listing.zipcode = req.body.zipcode;
+      listing.date = req.body.date;
+      listing.logoURL = req.body.logoURL;
+      listing.website = req.body.website;
+      listing.type = req.body.type;
+      listing.api = req.body.api;
+      listing.prize = req.body.prize;
+      listing.price = req.body.price;
+      listing.duration = req.body.duration;
    });
 });
 
