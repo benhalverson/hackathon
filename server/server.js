@@ -96,25 +96,6 @@ app.get("/", function(req, res){
                 console.log("Saved");
             }
         });
-        var listing = Listing(
-            {
-                name: name,
-                description: description,
-                city: city,
-                state: state,
-                zipcode: zipcode,
-                logoURL: logoURL,
-                website: website,
-                date: name.date,
-                type: name.type,
-                api: name.api,
-                prize: name.prize,
-                price: name.price,
-                duration: name.duration
-            });
-        // listing.save(function (err) {
-        //     res.send();
-        // })
     });
 });
 
