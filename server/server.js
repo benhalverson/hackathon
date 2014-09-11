@@ -149,6 +149,7 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
       listing.price = req.body.price;
       listing.duration = req.body.duration;
    });
+   res.send('hit update endpoint');
 });
 
 // remove listing
