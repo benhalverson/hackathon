@@ -134,7 +134,7 @@ app.get("/", function(req, res){
 
 //update a single listing by ID
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
-   Listing.findById(req.params.id, function(err, listing){
+   Listing.findByIdAndUpdate(req.params.id, function(err, listing){
       listing.name = req.body.name;
       listing.description = req.body.desc;
       listing.city = req.body.city;
