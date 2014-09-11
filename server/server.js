@@ -103,7 +103,7 @@ app.get("/", function(req, res){
 //update a single listing by ID
 app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
    
-    var date = rew.params.date;
+    var date = req.params.date;
     var year = date.slice(0,4);
     var month = date.slice(5,7);
     var day = date.slice(8,10);
