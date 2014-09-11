@@ -109,11 +109,12 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     // var day = date.slice(8,10);
     // date = month + "/" + day + "/" + year;
     var id = req.params.id;
-    var name = req.params.name
+    var name = req.params.name;
 
     Listing.findByIdAndUpdate(id, { $set: 
         { 
-            name: name
+            name: req.params.name,
+            description: req.params.desc
         }
         }, function () {
             res.send('bingo');
