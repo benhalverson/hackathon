@@ -31,7 +31,7 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         console.log("new listing : " + JSON.stringify(newListing));
 
         //TODO: reset fields after adding something to the database
-        $http.post(url + "/add", {name:newListing}).success(function () {
+        $http.post(url + "/add", newListing).success(function () {
             console.log("posting");
             
         })
@@ -52,7 +52,22 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         $('#prize').val('');
         $('#duration').val('');
 
+        $("#success-alert").alert();
+        $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+            $("#success-alert").alert('close');
+        });
+
     };
+
+    app.error = function (error) {
+        $("#error-message").empty();
+        $("#error-message").append(error);
+        $("#error-alert").alert();
+        $("#error-alert").fadeTo(2000, 500).slideUp(500, function(){
+            //$("#error-alert").alert('close');
+        });
+    };
+
 
     $scope.check = function() {
         var name =  $('#name').val();
@@ -70,55 +85,68 @@ hackathonsite.controller("AppCtrl", function ($http, $scope) {
         var duration =  $('#duration').val();
 
         if(!name){
-            alert('Name Required');
+            var error = 'Name Required';
+            app.error(error);
             return;
         }
         if(!description){
-            alert('Description Required')
+            var error = 'Description Required';
+            app.error(error);
             return;
         }
         if(!city){
-            alert('City Required')
+            var error = 'City Required';
+            app.error(error);
             return;
         }
         if(!state){
-            alert('State Required')
+            var error = 'State Required';
+            app.error(error);
             return;
         }
         if(!zipcode){
-            alert('Zipcode Required')
+            var error = 'Zip Code Required';
+            app.error(error);
             return;
         }
         if(!logoURL){
-            alert('Logo URL Required')
+            var error = 'Logo URL Required';
+            app.error(error);
             return;
         }
         if(!website){
-            alert('Website Required')
+            var error = 'Website Required';
+            app.error(error);
             return;
         }
         if(!date){
-            alert('Date Required')
+            var error = 'Date Required';
+            app.error(error);
             return;
         }
         if(!type){
-            alert('Type Required')
+            var error = 'Type Required';
+            app.error(error);
             return;
         }
         if(!api){
-            alert('API Required')
-            return;
-        }
-        if(!price){
-            alert('Price Required')
+            var error = '# of API\'s Required';
+            app.error(error);
             return;
         }
         if(!prize){
-            alert('Prize Required')
+            var error = 'Prize Required';
+            app.error(error);
+            return;
+        }
+        if(!price){
+            var error = 'Price Required';
+            app.error(error);
             return;
         }
         if(!duration){
-            alert('Duration Required')
+            var error = 'Duration Required';
+            app.error(error);
             return;
         }
         

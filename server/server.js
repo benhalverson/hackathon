@@ -145,7 +145,8 @@ app.put('/update/:id', function(req, res){
 // remove listing
 app.post("/remove/:id", function (req, res) {
     console.log("ready to remove");
-    Listing.remove({"_id": "abc"},function(err) {
+    var id = req.route.params.id;
+    Listing.remove({"_id": id},function(err) {
         console.log("remove from server ");
 
       //  res.send(listing);
