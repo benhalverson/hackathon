@@ -115,10 +115,11 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     //     }, function(){
     //         res.send('bingo!');
     //     });
+    var name = req.params.name
 
     Listing.findByIdAndUpdate(id, { $set: 
         { 
-            name: req.params.name 
+            name: name
         }
         }, function (err, listing) {
       if (err) return handleError(err);
