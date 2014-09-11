@@ -109,21 +109,27 @@ app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/
     var day = date.slice(8,10);
     date = month + "/" + day + "/" + year;
 
-   Listing.findByIdAndUpdate(req.params.id, function(err, listing){
-      listing.name = req.body.name;
-      listing.description = req.body.desc;
-      listing.city = req.body.city;
-      listing.state = req.body.state;
-      listing.zipcode = req.body.zipcode;
-      listing.date = date;
-      listing.logoURL = req.body.logoURL;
-      listing.website = req.body.website;
-      listing.type = req.body.type;
-      listing.api = req.body.api;
-      listing.prize = req.body.prize;
-      listing.price = req.body.price;
-      listing.duration = req.body.duration;
-   });
+   Listing.findByIdAndUpdate( {_id: req.params.id},
+        {
+          name: req.body.name,
+          description: req.body.desc,
+          city: req.body.city,
+          state: req.body.state,
+          zipcode: req.body.zipcode,
+          logoURL: req.body.logoURL,
+          website: req.body.website,
+          date: date,
+          type: req.body.type,
+          api: req.body.api,
+          prize: req.body.prize,
+          price: req.body.price,
+          duration: req.body.duration
+      }, function (err){
+        if(err) { 
+            res.send(err);
+        }
+      });
+
    res.send('hit update endpoint id=' + req.params.id + " name = " + req.params.name + "date = " + req.params.date);
 });
 
