@@ -114,7 +114,7 @@ app.post('/update/:id', function(req, res){
     Listing.findByIdAndUpdate(id, { $set: 
         { 
             name: req.body.name,
-            description: req.body.desc,
+            description: req.body.description,
             city: req.body.city,
             state: req.body.state,
             zipcode: req.body.zipcode,
