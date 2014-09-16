@@ -101,60 +101,36 @@ app.get("/", function(req, res){
 
 
 //update a single listing by ID
-app.post('/update/:id/:name/:desc/:city/:state/:zipcode/:date/:logoURL/:website/:type/:api/:prize/:price/:duration', function(req, res){
+app.post('/update/:id', function(req, res){
    
-    var date = req.params.date;
+    var date = req.body.date;
     var year = date.slice(4,8);
     var month = date.slice(0,2);
     var day = date.slice(2,4);
     date = month + "/" + day + "/" + year;
     var id = req.params.id;
-    var name = req.params.name;
+    var name = req.body.name;
 
     Listing.findByIdAndUpdate(id, { $set: 
         { 
-            name: req.params.name,
-            description: req.params.desc,
-            city: req.params.city,
-            state: req.params.state,
-            zipcode: req.params.zipcode,
-            logoURL: req.params.logoURL,
-            website: req.params.website,
+            name: req.body.name,
+            description: req.body.desc,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode,
+            logoURL: req.body.logoURL,
+            website: req.body.website,
             date: date,
-            type: req.params.type,
-            api: req.params.api,
-            prize: req.params.prize,
-            price: req.params.price,
-            duration: req.params.duration
+            type: req.body.type,
+            api: req.body.api,
+            prize: req.body.prize,
+            price: req.body.price,
+            duration: req.body.duration
         }
         }, function () {
-            res.send(month + "/" + day + "/" + year);
+            res.send('updated');
         }
     );
-06/13/1991
-01/34/6789
-    //Listing.update( {_id: id} , {$set: {name: name} });
-
-   // Listing.findByIdAndUpdate( {_id: req.params.id},
-   //      {
-          // name: req.body.name,
-          // description: req.body.desc,
-          // city: req.body.city,
-          // state: req.body.state,
-          // zipcode: req.body.zipcode,
-          // logoURL: req.body.logoURL,
-          // website: req.body.website,
-          // date: date,
-          // type: req.body.type,
-          // api: req.body.api,
-          // prize: req.body.prize,
-          // price: req.body.price,
-          // duration: req.body.duration
-   //    }, function (err){
-   //      if(err) { 
-   //          res.send(err);
-   //      }
-   //    });
 
 });
 
